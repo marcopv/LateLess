@@ -5,3 +5,4 @@ streamlit-folium
 streamlit-extras
 pandas
 joblib
+pathlib
