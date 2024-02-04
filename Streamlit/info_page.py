@@ -13,7 +13,7 @@ st.set_page_config(
 
 # read and apply css
 style = ""
-with open(Path("style") /"style.txt", "r") as style:
+with open(Path(__file__).parent / "style/style.txt", "r") as style:
   style = style.read()
 st.markdown(style, unsafe_allow_html=True)
 
@@ -31,10 +31,11 @@ def add_bg_from_local(image_file):
     """,
     unsafe_allow_html=True
     )
-add_bg_from_local(Path("style") /"dddepth-308.jpg")    
+    
+add_bg_from_local(Path(__file__).parent / "style/dddepth-308.jpg")    
 # open readme file for info
 markdown = ""
-with open("infopage.md", "r") as mrk:
+with open(Path(__file__).parent / "infopage.md", "r") as mrk:
   markdown = mrk.read()
 
 col1,col2,col3 = st.columns([0.5,2,0.5])
