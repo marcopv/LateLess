@@ -13,6 +13,7 @@ import folium.features
 import requests
 import folium
 import base64
+from pathlib import Path
 
 # set page info
 st.set_page_config(
@@ -219,7 +220,7 @@ def add_bg_from_local(image_file):
     """,
     unsafe_allow_html=True)
 
-add_bg_from_local('style/dddepth-308.jpg')
+add_bg_from_local(Path(__file__).parent / "../style/dddepth-308.jpg")
 
 #create columns under the title that will contain graphic elements
 t_col1, t_col2  = st.columns([0.45, 1])
@@ -323,4 +324,3 @@ if iata:
     </div>
     </div>""",
     height=500)
-
