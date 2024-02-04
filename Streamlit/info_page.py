@@ -2,6 +2,8 @@ import time
 import streamlit as st
 from streamlit_extras.switch_page_button import switch_page
 import base64
+from pathlib import Path
+path = Path("data") / "datasethospital.xlsx"
 
 st.set_page_config(
     page_title="USA airlines delays App",
@@ -12,7 +14,7 @@ st.set_page_config(
 
 # read and apply css
 style = ""
-with open("./style/style.txt", "r") as style:
+with open(Path("style") /"style.txt", "r") as style:
   style = style.read()
 st.markdown(style, unsafe_allow_html=True)
 
@@ -30,10 +32,10 @@ def add_bg_from_local(image_file):
     """,
     unsafe_allow_html=True
     )
-add_bg_from_local('./style/dddepth-308.jpg')    
+add_bg_from_local(Path("style") /"dddepth-308.jpg")    
 # open readme file for info
 markdown = ""
-with open("./infopage.md", "r") as mrk:
+with open("infopage.md", "r") as mrk:
   markdown = mrk.read()
 
 col1,col2,col3 = st.columns([0.5,2,0.5])
