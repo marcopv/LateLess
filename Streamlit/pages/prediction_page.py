@@ -43,13 +43,13 @@ st.title('⏳Welcome to USA Airlines Delays Prediction⌛')
 st.caption('\n_Your airlines delays app accessibile everywhere to make\
                 prediction on flight delays!_')
 
-@st.experimental_memo
+@st.cache_data
 def _get_all_state_bounds() -> dict:
     url = "https://raw.githubusercontent.com/PublicaMundi/MappingAPI/master/data/geojson/us-states.json"
     data = requests.get(url).json()
     return data
 
-@st.experimental_memo
+@st.cache_data
 def get_state_bounds(state: str) -> dict:
     data = _get_all_state_bounds()
 
@@ -128,7 +128,7 @@ def map_plot():
         feature_group_to_add=fg,
         center=center,
         width=940,
-        height=400,
+        height=420,
     )
 
     if (
@@ -144,7 +144,7 @@ def map_plot():
                 st.session_state["selected_airport_iata"] = capital.iata
                 st.session_state["selected_airport_name"] = capital.airport
 
-        st.experimental_rerun()
+        st.rerun()
 
     # if st.session_state['selected_airport_name'] == "":
     #     pass
@@ -310,7 +310,7 @@ with t_col2:
 iata = iata.lower()
 if iata:
     components.html(f"""<div class="airportia-widget">
-    <iframe scrolling="no" frameborder="0" style="border:0; width: 100%; height: 95%; min-height: 650px; margin:0; padding:0;" src="https://www.airportia.com/widgets/airport/{iata}/arrivals/?df=dmy">
+    <iframe scrolling="no" frameborder="0" style="border:0; width: 100%; height: 95%; min-height: 650px; margin:0; padding:0;" src="https://www.flightera.net/en/widgets/airport?iata={iata}&depArr=dep&nrFlights=5&airlineIata=">
     </iframe>
     <div style="font-family: arial,sans-serif; font-size:12px; color:#3f9bdc; width: 100%; text-align: center; margin-top: 2px; padding-top: 5px; border-top: 1px solid #65747e;">
     <a style="text-decoration:none; color:#3f9bdc;" href="https://www.airportia.com/united-states/roberts-field-airport/arrivals/" title="Redmond Municipal Airport Arrivals" target="_top">
@@ -323,3 +323,4 @@ if iata:
     </div>
     </div>""",
     height=500)
+
