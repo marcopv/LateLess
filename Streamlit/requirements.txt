@@ -1,7 +1,7 @@
 scikit-learn==0.23.2
 numpy==1.19.5
-streamlit==1.16.0
-streamlit-folium==0.8.1
-streamlit-extras==0.2.4
-pandas==1.4.4
-joblib==1.2.0
+streamlit==1.31.0
+streamlit-folium
+streamlit-extras
+pandas
+joblib
