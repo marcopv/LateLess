@@ -11,7 +11,7 @@
 
 <h4 align="center"> 
 <b> 
-  A ML Delay Prediction App Made with Streamlit. Demo Avaliable at: <a>https://lateless.streamlit.app/</a>
+  A ML Delay Prediction App Made with Streamlit. <a href="https://lateless.streamlit.app/"> Demo Avaliable! at:</a>
 <b>
 </h4>
 
